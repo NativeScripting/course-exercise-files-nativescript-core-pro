@@ -1,0 +1,29 @@
+{
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "readme": "NativeScript Application",
+  "repository": "<fill-your-repository-here>",
+  "nativescript": {
+    "id": "org.nativescript.rpstrackertns"
+  },
+  "scripts": {
+    "lint": "tslint 'app/**/*.ts' -t verbose"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "dependencies": {
+    "email-validator": "1.1.1",
+    "moment": "2.22.1",
+    "nativescript-ui-sidedrawer": "4.1.0",
+    "nativescript-ui-dataform": "3.6.0",
+    "nativescript-theme-core": "~1.0.4",
+    "tns-core-modules": "4.0.0"
+  },
+  "devDependencies": {
+    "nativescript-dev-typescript": "0.7.1",
+    "tns-platform-declarations": "4.0.0",
+    "tslint": "5.10.0",
+    "typescript": "2.7.2"
+  }
+}
