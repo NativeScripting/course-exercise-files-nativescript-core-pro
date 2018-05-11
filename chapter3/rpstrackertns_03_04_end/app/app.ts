@@ -1,6 +1,9 @@
 ﻿import './bundle-config';
 import * as application from 'application';
 import { appConfig } from '~/config/app-config';
+import { setAppEvents } from '~/globals/app-events/app-events';
+
+setAppEvents();
 
 const isLoggedIn = true;
 
