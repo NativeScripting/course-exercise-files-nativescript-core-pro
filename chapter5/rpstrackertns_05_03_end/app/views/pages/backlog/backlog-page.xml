@@ -1,3 +1,10 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd">
-    <Label text="Backlog page"></Label>
+<Page navigatingTo="onNavigatingTo" loaded="onLoaded" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ListView id="backlogList" class="items-list" items="{{ items }}" itemTap="onListItemTap" separatorColor="#97a879">
+        <ListView.itemTemplate>
+            <Label textWrap="true" text="{{ title }}" />
+        </ListView.itemTemplate>
+    </ListView>
+
 </Page>

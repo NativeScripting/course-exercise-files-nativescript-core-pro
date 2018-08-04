@@ -40,7 +40,8 @@ const appStateService: PtAppStateService = new AppStateService(storageService);
 const authService: PtAuthService = new AuthService(
   authRepo,
   storageService,
-  loggingService
+  loggingService,
+  appStateService
 );
 const backlogService: PtBacklogService = new BacklogService(
   loggingService,

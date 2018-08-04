@@ -6,15 +6,20 @@ import { handleFetchErrors } from '~/infrastructure/fetch-error-handler';
 export class BacklogRepository implements PtBacklogRepository {
   constructor(public apiEndpoint: string) {}
 
-  private getFilteredBacklogUrl() {
-    return `${this.apiEndpoint}/backlog`;
+  private getFilteredBacklogUrl(currentUserId?: number) {
+    if (currentUserId) {
+      return `${this.apiEndpoint}/myItems?userId=${currentUserId}`;
+    } else {
+      return `${this.apiEndpoint}/backlog`;
+    }
   }
 
   public fetchPtItems(
+    currentUserId: number,
     errorHandler: (error: any) => void,
     successHandler: (data: PtItem[]) => void
   ) {
-    fetch(this.getFilteredBacklogUrl(), {
+    fetch(this.getFilteredBacklogUrl(currentUserId), {
       method: 'GET'
     })
       .then(handleFetchErrors)

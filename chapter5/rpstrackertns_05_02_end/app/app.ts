@@ -4,11 +4,9 @@ import { setAppEvents } from '~/globals/app-events/app-events';
 import './bundle-config';
 import './globals/dependencies/locator';
 
-global.__assign = Object.assign;
-
 setAppEvents();
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 if (isLoggedIn) {
   application.run({ moduleName: 'app-root-authenticated' });

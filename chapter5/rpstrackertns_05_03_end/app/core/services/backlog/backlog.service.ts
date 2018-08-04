@@ -3,7 +3,6 @@ import { FetchItemsResponse } from '~/core/contracts/responses/backlog';
 import { PtItem } from '~/core/models/domain';
 import { PtLoggingService, PtAppStateService } from '~/core/contracts/services';
 import { PtBacklogRepository } from '~/core/contracts/repositories';
-import { FetchItemsRequest } from '~/core/contracts/requests/backlog';
 
 export class BacklogService implements PtBacklogService {
   constructor(
@@ -12,12 +11,9 @@ export class BacklogService implements PtBacklogService {
     private appStateService: PtAppStateService
   ) {}
 
-  public fetchItems(
-    fetchItemsRequest: FetchItemsRequest
-  ): Promise<FetchItemsResponse> {
+  public fetchItems(): Promise<FetchItemsResponse> {
     return new Promise<FetchItemsResponse>((resolve, reject) => {
       this.backlogRepo.fetchPtItems(
-        fetchItemsRequest.currentUserId,
         error => {
           this.loggingService.error('Fetch items failed');
           reject(error);

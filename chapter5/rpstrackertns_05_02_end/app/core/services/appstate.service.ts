@@ -6,8 +6,7 @@ import {
 } from '~/core/contracts/services';
 
 export const INITIAL_STATE: PtAppState = {
-  backlogItems: [],
-  currentUser: undefined
+  backlogItems: []
 };
 
 export class AppStateService implements PtAppStateService {
