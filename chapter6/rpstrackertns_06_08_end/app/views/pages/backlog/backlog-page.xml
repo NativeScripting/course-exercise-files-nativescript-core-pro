@@ -1,0 +1,44 @@
+<Page navigatingTo="onNavigatingTo" loaded="onLoaded" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar title="Backlog">
+        <ActionItem tap="onSettingsTap" ios.position="right">
+            <StackLayout class="navbar_image_wrapper" ios:horizontalAlignment="right">
+                <Label text="Settings"></Label>
+            </StackLayout>
+        </ActionItem>
+        <ActionItem tap="onLogoutTap" ios.position="right">
+            <StackLayout class="navbar_image_wrapper" ios:horizontalAlignment="right">
+                <Label text="logout"></Label>
+            </StackLayout>
+        </ActionItem>
+    </ActionBar>
+
+    <GridLayout class="backlog-container" rows="*, auto">
+        <GridLayout row="0" class="list-container">
+
+            <ListView id="backlogList" class="items-list" items="{{ items }}" itemTap="onListItemTap" separatorColor="#97a879">
+                <ListView.itemTemplate>
+                    <GridLayout class="li-wrapper" rows="60" columns="10, 50,  *, 100">
+
+                        <GridLayout col="1" class="li-avatar">
+                            <Image src="{{ assignee.avatar }}" stretch="aspectFit" />
+                        </GridLayout>
+
+                        <StackLayout class="li-info-wrapper" col="2">
+                            <Label class="li-title" textWrap="true" text="{{ title }}" />
+                            <Label class="li-estimate" text="{{ 'estimate: ' + estimate }}" />
+                        </StackLayout>
+
+                        <StackLayout col="3">
+                            <Label text="{{ dateCreated }}" class="li-date" />
+                        </StackLayout>
+
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </GridLayout>
+
+    </GridLayout>
+
+</Page>

@@ -1,0 +1,32 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar title="Item">
+        <NavigationButton text="Go back" android.systemIcon="ic_menu_back" tap="onNavBackTap"></NavigationButton>
+
+        <ActionItem tap="onDeleteTap" ios.systemIcon="16" ios.position="right" text="delete" android.systemIcon="ic_menu_delete" android.position="actionBar"></ActionItem>
+    </ActionBar>
+
+    <StackLayout>
+
+        <GridLayout class="pt-item-detail-header" rows="*, 40">
+            <GridLayout row="0" columns="*" class="pt-item-detail-header-title-row">
+
+                <Label text="{{ itemTitle }}" class="pt-item-detail-header-title" col="0"></Label>
+            </GridLayout>
+        </GridLayout>
+
+        <StackLayout>
+            <!-- Details -->
+            <GridLayout visibility="{{ selectedScreen === 'details' ? 'visible' : 'collapsed' }}" rows="auto, auto" class="pt-item-details-container">
+
+                <GridLayout row="0" columns="*, *, auto" class="assignee-row">
+                    <Label text="Assignee" color="#4b5833" col="0" />
+                    <Label text="{{ selectedAssignee.fullName }}" col="1" />
+                    <Image id="assigneeImg" width="40" height="40" class="pt-item-detail-avatar" src="{{ selectedAssignee.avatar }}" col="2" />
+                </GridLayout>
+            </GridLayout>
+        </StackLayout>
+
+    </StackLayout>
+</Page>
